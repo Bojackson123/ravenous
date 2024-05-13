@@ -1,0 +1,56 @@
+
+img {
+  width: 350px;
+  height: 350px;
+  border-radius: 5px;
+}
+
+.business {
+    display: grid;
+    width: 350px;
+    position: relative;
+    grid-template-areas: "image image"
+                         "title title"
+                         "left right";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr fit-content 1fr;
+    gap: 5px;
+}
+
+.image {
+    grid-area: image;
+}
+
+.title {
+    grid-area: title
+}
+.title h2 {
+    margin: 0;
+}
+
+.left {
+    grid-area: left;
+}
+
+.right {
+    grid-area: right;
+    text-align: right;
+}
+
+.right h3, .right p {
+    margin: 0;
+    
+}
+
+.left h3, .left p {
+    margin: 0;
+}
+
+.right h3, .rating {
+    color: rgb(212, 182, 10);
+    font-weight: bold;
+}
+
+.right h3 {
+    text-transform: uppercase;
+}
