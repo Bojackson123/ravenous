@@ -1,6 +1,6 @@
 .BusinessList {
     display: grid;
-    max-width: 1250px;
+    max-width: 70%;
     margin: auto;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-column-gap: 10px;
