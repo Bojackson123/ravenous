@@ -2,27 +2,27 @@ import React from 'react';
 import './Business.css';
 
 
-function Business({business}) {
+function Business(props) {
     return (
         <div className='business'>
             <div className='image'>
                 <img 
-                    src={`${business.imageSrc}`}
-                    alt='business'
+                    src={props.business.imageSrc}
+                    alt='props'
                 />
             </div>
             <div className='title'>
-                <h2>{business.name}</h2>
+                <h2>{props.business.name}</h2>
             </div>
             <div className='left'>
-                <p>{business.address}</p>
-                <p>{business.city}</p>
-                <p>{business.state} {business.zipCode}</p>
+                <p>{props.business.address}</p>
+                <p>{props.business.city}</p>
+                <p>{props.business.state} {props.business.zipCode}</p>
             </div>
             <div className='right'>
-                <h3>{business.category}</h3>
-                <p className='rating'>{business.rating} stars</p>
-                <p>{business.reviewCount} reviews</p>
+                <h3>{props.business.category}</h3>
+                <p className='rating'>{props.business.rating} stars</p>
+                <p>{props.business.reviewCount} reviews</p>
             </div>
         </div>
     );

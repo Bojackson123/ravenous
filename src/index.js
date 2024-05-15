@@ -1,16 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import BusinessList from './components/BusinessList/BusinessList';
-import SearchBar from './components/SearchBar/SearchBar';
-import Header from './components/Header/Header';
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Header />
-    <SearchBar />
-    <BusinessList />
+    <App />
   </React.StrictMode>
 );
 
