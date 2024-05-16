@@ -31,7 +31,7 @@ function SearchBar() {
         }
         
         const apiKey = 'g892hwMA39r9lqnrHCZ5DvTFwq3Zpsyi_yn1PTYavqtGoE8CVq4W0fQaNqT18KcapOFHeEcr_OHsJH0y9U_IaD0VQEKv5BPS-obRbLH20LppCCxCNHLnhYf9U9JFZnYx'; // Replace with your actual Yelp API key
-        const url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${search}&location=${location}&sort_by=${sortBy}`;
+        const url = `https://ravenous-bojackson-6fdfc5815a22.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${search}&location=${location}&sort_by=${sortBy}&limit=50`;
 
         try {
             const response = await fetch(url, {
