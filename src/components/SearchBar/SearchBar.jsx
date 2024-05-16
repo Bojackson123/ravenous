@@ -8,6 +8,7 @@ function SearchBar() {
     const [location, setLocation] = useState('');
     const [sortBy, setSortBy] = useState('best_match');
     const [businessList, setBusinessList] = useState([]);
+    const [searchPerformed, setSearchPerformed] = useState(false);
 
     const handleSortChange = (sortOption) => {
         setSortBy(sortOption);
@@ -59,8 +60,11 @@ function SearchBar() {
                 url: business.url,
             }));
             setBusinessList(businessListings);
+            setSearchPerformed(true);
         } catch (error) {
             console.error('Error fetching business listings:', error);
+            setBusinessList([])
+            setSearchPerformed(true);
         }
     };
 
@@ -107,7 +111,7 @@ function SearchBar() {
                 <button onClick={handleSubmit}>Let's Go</button>
             </div>
         </div>
-        <BusinessList businessList={businessList}/>
+        <BusinessList businessList={businessList} searchPerformed={searchPerformed}/>
         </>
     );
 };
