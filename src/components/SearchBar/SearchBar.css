@@ -22,27 +22,50 @@
     justify-content: space-between;
 }
 
-.filters h2 {
+.filters button {
     color: rgb(225, 247, 245);
     font-size: 1.0rem;
+    font-weight: bold;
     text-align: center;
     justify-content: center;
     margin: 0;
     padding: 10px;
     transition: all 0.3s ease;
     cursor: pointer;
+    background: none; 
+    border: none;
 }
 
-.filters h2:hover {
+.filters button:hover {
+    color: #fa9c0f;
+}
+
+.filters button.active {
     color: #fa9c0f;
 }
 
 .white-line {
+    position: relative;
     height: 3px;
     background-color: rgb(225, 247, 245);
     width: 80%;
     max-width: 800px;
+    margin: 20px auto; /* Center the line */
 }
+
+.white-line .highlight {
+    position: absolute;
+    height: 100%;
+    width: 33.33%;
+    background-color: #fa9c0f;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.white-line .highlight.active {
+    opacity: 1;
+}
+
 
 .search-bars {
     display: flex;
@@ -86,3 +109,4 @@
     background-color: rgb(225, 247, 245);
     color: #fa9c0f;
 }
+
