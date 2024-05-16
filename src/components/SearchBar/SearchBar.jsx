@@ -98,7 +98,7 @@ function SearchBar() {
                 <div className={`highlight ${sortBy === 'review_count' ? 'active' : ''}`} style={{ left: '66.66%' }}></div>
             </div>
             <div className='search-bars'>
-                <input className='left-bar' placeholder='Search Businesses' 
+                <input className='left-bar' placeholder='Food Type?' 
                        onChange={handleSearch}/>
                 <input className='right-bar' placeholder='Where?' 
                        onChange={handleLocation}/>

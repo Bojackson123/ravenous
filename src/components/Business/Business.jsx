@@ -6,13 +6,17 @@ function Business(props) {
     return (
         <div className='business'>
             <div className='image'>
+                <a href={props.business.url} target="_blank" rel="noopener noreferrer">
                 <img 
                     src={props.business.imageSrc}
                     alt='props'
                 />
+                </a>
             </div>
             <div className='title'>
-                <h2>{props.business.name}</h2>
+                <a href={props.business.url} target="_blank" rel="noopener noreferrer">
+                    <h2>{props.business.name}</h2>
+                </a>
             </div>
             <div className='left'>
                 <p>{props.business.address}</p>

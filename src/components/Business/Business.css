@@ -1,9 +1,18 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
 
 img {
   width: 350px;
   height: 350px;
   border-radius: 5px;
 }
+
 
 .business {
     display: grid;
