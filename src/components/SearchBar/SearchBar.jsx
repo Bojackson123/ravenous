@@ -1,10 +1,13 @@
 import React, {useState}from 'react';
+import BusinessList from '../BusinessList/BusinessList';
 import './SearchBar.css';
+
 
 function SearchBar() {
     const [search, setSearch] = useState('');
     const [location, setLocation] = useState('');
     const [sortBy, setSortBy] = useState('best_match');
+    const [businessList, setBusinessList] = useState([]);
 
     const handleSortChange = (sortOption) => {
         setSortBy(sortOption);
@@ -21,16 +24,51 @@ function SearchBar() {
         // console.log(target.value);
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (!search || !location) {
             alert('Please enter a search term and location');
             return;
         }
-        console.log(`Searching Yelp with ${search}, ${location}, ${sortBy}`)
+        
+        const apiKey = 'g892hwMA39r9lqnrHCZ5DvTFwq3Zpsyi_yn1PTYavqtGoE8CVq4W0fQaNqT18KcapOFHeEcr_OHsJH0y9U_IaD0VQEKv5BPS-obRbLH20LppCCxCNHLnhYf9U9JFZnYx'; // Replace with your actual Yelp API key
+        const url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${search}&location=${location}&sort_by=${sortBy}`;
+
+        try {
+            const response = await fetch(url, {
+                headers: {
+                    Authorization: `Bearer ${apiKey}`,
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            const businesses = data.businesses || [];
+            const businessListings = businesses.map((business) => ({
+                imageSrc: business.image_url,
+                name: business.name,
+                address: business.location.address1,
+                city: business.location.city,
+                state: business.location.state,
+                zipCode: business.location.zip_code,
+                category: (business.categories[0] || {}).title,
+                rating: business.rating,
+                reviewCount: business.review_count,
+                url: business.url,
+            }));
+            setBusinessList(businessListings);
+        } catch (error) {
+            console.error('Error fetching business listings:', error);
+        }
     };
 
 
+
+
     return (
+        <>
         <div className="search-container">
             <div className='filters'>
                 <button 
@@ -69,6 +107,8 @@ function SearchBar() {
                 <button onClick={handleSubmit}>Let's Go</button>
             </div>
         </div>
+        <BusinessList businessList={businessList}/>
+        </>
     );
 };
 
